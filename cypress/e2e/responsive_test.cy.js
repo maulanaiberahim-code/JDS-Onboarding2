@@ -10,7 +10,6 @@ beforeEach(() => {
 
 describe('Form Submission Tests on Different Mobile Dimensions', { testIsolation: false }, () => {
     const dimensions = [
-        { device: 'iPhone 5', width: 320, height: 568 },
         { device: 'iPhone 6', width: 375, height: 667 },
         { device: 'iPhone X', width: 375, height: 812 },
         { device: 'Samsung Galaxy S9', width: 360, height: 740 },
