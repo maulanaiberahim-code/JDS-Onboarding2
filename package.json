@@ -1,0 +1,26 @@
+{
+  "name": "test3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "cypress": "^13.15.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-multi-reporters": "^2.0.4",
+    "cypress-qase-reporter": "^2.2.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "cypress-dotenv": "^2.0.0",
+    "cypress-real-events": "^1.13.0",
+    "dotenv": "^16.4.5",
+    "qase-javascript-commons": "^2.2.3",
+    "uuid": "^11.0.2"
+  },
+  "description": ""
+}
