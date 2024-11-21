@@ -54,23 +54,31 @@ export class FormOnboarding {
     // Radio Button
     klikrbtnPilihanGanda1(value){
         const rbtnPilihanGanda1 = cy.get(onboardingPart1.rbtnPilihanGanda0 + `[value="${value}"]`).as('rbtnPilihanGanda1')
-        rbtnPilihanGanda1.click()
+        .then(($radio) => {
+            if ($radio.attr('aria-checked') !== 'true') {
+                // Jika "Pilihan 1" tidak terpilih, klik radio button "Pilihan 1"
+                rbtnPilihanGanda1.click()
+                // Pastikan atribut 'data-state' dari radio button memiliki nilai 'checked'
+                .then((radioButton) => {
+                expect(radioButton).to.have.attr('data-state', 'checked');
+                }) 
+            }
 
-        // Pastikan atribut 'data-state' dari radio button memiliki nilai 'checked'
-        .then((radioButton) => {
-            expect(radioButton).to.have.attr('data-state', 'checked');
-          }) 
+        })
     }
 
-    // Checkbox
+    // Checkbox centang sesuai dengan value yang dipilih
     klikcbKotakCentang1(value){
         const cbKotakCentang1 = cy.get(onboardingPart1.cbKotakCentang0 + `[value="${value}"]`).as('cbKotakCentang1')
-        cbKotakCentang1.click()
-
-        // Pastikan atribut 'data-state' dari Checkbox memiliki nilai 'checked'
-        .then((checkboxButton) => {
-            expect(checkboxButton).to.have.attr('data-state', 'checked');
-          }) 
+        .then(($checkbox) => {
+            if ($checkbox.attr('aria-checked') !== 'true') {
+                cbKotakCentang1.click()
+                // Pastikan atribut 'data-state' dari Checkbox memiliki nilai 'checked'
+                .then((checkboxButton) => {
+                    expect(checkboxButton).to.have.attr('data-state', 'checked');
+                }) 
+            }
+        })
     }
 
     // Pilih Lokasi

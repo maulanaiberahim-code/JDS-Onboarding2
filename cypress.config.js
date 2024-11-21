@@ -6,12 +6,13 @@ module.exports = defineConfig({
   reporter: 'cypress-multi-reporters',
   reporterOptions: {
     reporterEnabled: 'cypress-qase-reporter',
-    // cypressMochawesomeReporterReporterOptions: {
-    //   charts: true,
-    // },
     
     cypressQaseReporterReporterOptions: {
       debug: true,
+
+      mode: 'testops',
+      environment: 'Staging',
+      rootSuite: 'Test Case Onboarding',
 
       testops: {
         api: {
@@ -24,6 +25,7 @@ module.exports = defineConfig({
         
 
         run: {
+          title: 'Automation test title',
           complete: true,
         },
 
@@ -38,6 +40,7 @@ module.exports = defineConfig({
     },
   },
   video: false,
+  
   e2e: {
 
     setupNodeEvents(on, config) {
