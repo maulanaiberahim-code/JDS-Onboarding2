@@ -6,6 +6,16 @@ let formOnboarding = new FormOnboarding()
 beforeEach(() => {
     cy.clearCookies();
     cy.clearLocalStorage();
+
+    // Bersihkan seluruh sessionStorage
+    cy.window().then((window) => {
+        window.sessionStorage.clear();
+    });
+  
+    // Verifikasi sessionStorage telah dibersihkan
+    cy.window().then((window) => {
+        expect(window.sessionStorage.length).to.eq(0); // Pastikan sessionStorage kosong
+    });
 })
 
 describe('Form Submission Tests on Different Mobile Dimensions', { testIsolation: false }, () => {
@@ -45,7 +55,7 @@ describe('Form Submission Tests on Different Mobile Dimensions', { testIsolation
 
             context('Klik Radio Button Pilihan Ganda',() => {
                 const selectedValue = 'pilihan 2';
-                formOnboarding.klikrbtnPilihanGanda1(selectedValue)
+                    formOnboarding.klikrbtnPilihanGanda1(selectedValue)
             })
 
             context('Klik Checkbox Kotak Centang',() => {
