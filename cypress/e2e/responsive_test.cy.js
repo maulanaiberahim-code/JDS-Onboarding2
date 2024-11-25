@@ -12,7 +12,7 @@ beforeEach(() => {
         window.sessionStorage.clear();
     });
   
-    // Verifikasi sessionStorage telah dibersihkan
+    // Cek sessionStorage telah dibersihkan
     cy.window().then((window) => {
         expect(window.sessionStorage.length).to.eq(0); // Pastikan sessionStorage kosong
     });
